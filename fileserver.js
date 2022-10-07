@@ -30,7 +30,7 @@ server = http.createServer(function (req, res) {
 
       // Zip file
       //var startTime = performance.now();
-      var gzip = zlib.createGzip({level: 1});
+      var gzip = zlib.createGzip();
       var r = fs.createReadStream(input);
       var w = fs.createWriteStream(__dirname + '/' + output + '.gz');
       r.pipe(gzip).pipe(w);
