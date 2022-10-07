@@ -40,7 +40,7 @@ server = http.createServer(function (req, res) {
       // Remove original file
       fs.unlinkSync(input);
 
-      //res.writeHead(200, {'Content-Type': 'text/html'});
+      res.writeHead(200, {'Content-Type': 'text/html'});
       res.write('<p>File was successfully uploaded in ' + output + '.gz!</p>');
       //res.write('<p>File was successfully uploaded in ' + output + '.gz and took ' + elapsed.toFixed(6) + ' s</p>');
       res.write('<a href="/" >Back</a>');
@@ -52,7 +52,7 @@ server = http.createServer(function (req, res) {
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write('<h1>My web file server</h1>')
       res.write('<ul>')
-      var files = dirCont.filter( ( elm ) => elm.match(/.*\.(gz?)/ig));
+      var files = dirCont.filter( ( elm ) => elm.match(/.*\.gz/ig));
       if ( files.length == 0 ) {
         res.write('<li>No file found</li>')
       } else {
